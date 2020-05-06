@@ -1,5 +1,5 @@
 module EventsHelper
-  def attende_event?
+  def attendee_not_in_event?
     event = Event.find_by(id: params[:id])
     return !event.event_attendances.where(attendee: current_user).exists?
   end

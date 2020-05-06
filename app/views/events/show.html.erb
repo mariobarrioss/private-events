@@ -28,12 +28,12 @@
   				</div>
   			</nav>
         <% end %>
-		<% if user_signed_in? && current_user != @event.creator && event_not_expired? %>
-			<% if attende_event?%>
-				<%= button_to 'Attend event', event_path(event_id: @event.id) , method: 'post', class: 'button is-success'%>
-			<% else %>
-				<%= button_to "Cancel attendance", event_path(event_id: @event.id) , method: 'delete', class: 'button is-danger'%>
-			<% end %>
+        <% if user_signed_in? && current_user != @event.creator && event_not_expired? %>
+          <% if attendee_not_in_event? %>
+            <%= button_to 'Attend event', event_path(event_id: @event.id) , method: 'post', class: 'button is-success'%>
+          <% else %>
+            <%= button_to "Cancel attendance", event_path(event_id: @event.id) , method: 'delete', class: 'button is-danger'%>
+          <% end %>
         <% end %>
   		</div>
 		<div class="content">
