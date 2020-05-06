@@ -1,15 +1,17 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  # before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @past_events = Event.all.past
+    @upcoming_events = Event.all.upcoming
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
@@ -25,10 +27,12 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = current_user.events.build(event_params)
+    event_attendance = EventAttendance.new(attended_event: @event, attendee: current_user)
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        event_attendance.save
+        format.html { redirect_to current_user, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -59,6 +63,22 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def attend_event
+    @event = Event.find_by(id: params[:event_id])
+    event_attendance = EventAttendance.new(attended_event: @event, attendee: current_user)
+    if  event_attendance.save 
+      flash[:success] = 'you are going to the event'
+      redirect_to current_user
+    end
+  end
+
+  def cancel_attendance
+    @event = Event.find_by(id: params[:event_id])
+    EventAttendance.find_by(attended_event: @event, attendee: current_user).destroy
+    flash[:success] = 'you remove the invitation to the event'
+    redirect_to current_user
   end
 
   private
