@@ -29,17 +29,17 @@
 		</div>
 	</nav>
 </div>
-<div class='container'>
+<div class="container">
     <div class='columns'> 
 
-        <div class='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd'>
+        <div class="column">
             <h3>All your events: </h3>
             <% @events_created_by_user.each do |event|%>
                 <%= render partial: 'events/event' , locals: {event: event} %>
             <% end%>
         </div>
 
-        <div class='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd'>
+        <div class="column">
             <h3>Past events: </h3>
             <% @past_events.each do |event| %>
                 <%= render partial: 'events/event' , locals: {event: event} %>
@@ -47,7 +47,7 @@
             
         </div>
 
-        <div class='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd'>
+        <div class="column">
             <h3>Upcoming events: </h3>
             <% @upcoming_events.each do |event| %>
                 <%= render partial: 'events/event' , locals: {event: event} %>
