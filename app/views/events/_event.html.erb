@@ -1,0 +1,25 @@
+<div class="card large box">
+    <div class="card-image">
+        <figure class="image">
+            <img src="https://source.unsplash.com/kcJsQ3PJrYU/1920x1440" alt="Image">
+        </figure>
+    </div>
+    <div class="card-content">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image is-96x96">
+                    <%= gravatar_image_tag(event.creator.email, size: 96, alt: event.creator.email) %>
+                </figure>
+            </div>
+            <div class="media-content">
+                <p class="title is-4 no-padding"><%= link_to event.title, "/events/#{event.id}" %> </p>
+                <p><span class="title is-6"><%= link_to event.creator.email, "/events/#{event.id}" %></span></p>
+                <p class="subtitle is-6">Created by: <strong><%= event.creator.email %></strong></p>
+            </div>
+        </div>
+        <div class="content">
+            <p><%= event.description %></p>
+            <p><span>Starts: </span><%= event.date.strftime(" %m/%d/%Y at %I:%M%p") %></p>
+        </div>
+    </div>
+</div>
