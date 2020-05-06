@@ -42,11 +42,26 @@
           <div class="navbar-item">
 					<div class="field is-grouped">
 						
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button" %>
-            <%= link_to "Sign In", new_user_session_path, class: "button is-primary" %>
-            <%= link_to "Sign Up", new_user_registration_path, class: "button is-primary" %>
-            
-            
+            <% if user_signed_in? %>
+              <p class="control">
+                <%= link_to "Create Event", new_event_path, class: "button is-info" %>
+              </p>
+              <p class="control">
+                <%= link_to current_user.name, current_user, class: "button is-link" %>
+              </p>
+              <p>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button" %>
+              </p>
+            <% else %>
+            <p class="control">
+              <%= link_to 'Sign In', new_user_session_path, class: "button is-primary" %>
+            </p>
+						<p class="control">
+              <%= link_to 'Sign Up', new_user_registration_path, class: "button is-primary" %>
+            </p>
+            <% end %>
+
+            </div>
 					</div>
 				</div>
 			</div>
