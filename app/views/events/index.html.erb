@@ -3,18 +3,17 @@
 
     <div class='row columns'>
         <div class='column is-half'>
-            <h2 class="title is-2 no-padding">Upcoming events: </h2>
-            <% @upcoming_events.each do |event| %>
-                <%= render partial: 'events/event', locals: { event: event } %>
-            <% end %>
-        </div>
-
-        <div class='column is-half'>
             <h2 class="title is-2 no-padding">Past events: </h2>
             <% @past_events.each do |event|%>
                 <%= render partial: 'events/event' , locals: { event: event } %>
             <% end %>
         </div>
+
+        <div class='column is-half'>
+            <h2 class="title is-2 no-padding">Upcoming events: </h2>
+            <% @upcoming_events.each do |event| %>
+                <%= render partial: 'events/event', locals: { event: event } %>
+            <% end %>
+        </div>
     </div>
-    
 </div>

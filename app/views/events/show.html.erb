@@ -40,7 +40,7 @@
 		<p><strong>Attendees:</strong></p>
 		<ul>
 			<% @event.event_attendances.each do |attendance| %>
-				<li><%= attendance.attendee.name %></li>
+				<li><%= attendance.attendee.email %></li>
 			<% end %>
 		</ul>
 		</div>
