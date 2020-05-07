@@ -49,14 +49,6 @@ To get a local copy up and running follow these simple example steps.
   $ rails server -b 0.0.0.0
 ```
 
-### Run tests
-
-> Run the tests in the ```tests``` folder with the following command.
-
-```bash
-$ rails test
-``` 
-
 ### Deployment
 
 There are no deployment instructions for this project as of now, will add them later.
