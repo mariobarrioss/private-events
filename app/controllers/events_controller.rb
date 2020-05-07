@@ -53,16 +53,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # DELETE /events/1
-  # DELETE /events/1.json
-  def destroy
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   def attend_event
     @event = Event.find_by(id: params[:event_id])
     event_attendance = EventAttendance.new(attended_event: @event, attendee: current_user)
