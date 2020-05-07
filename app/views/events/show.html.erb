@@ -19,9 +19,6 @@
   					<%= link_to edit_event_path(@event), class: "level-item" do %>
   					  <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
   					<% end %>
-  					<%= link_to @event, method: :delete, data: { confirm: "Are you sure you want to delete this event?" } do %>
-  							<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-  					<% end %>
   				</div>
   			</nav>
         <% end %>
