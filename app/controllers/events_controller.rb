@@ -69,7 +69,7 @@ class EventsController < ApplicationController
     @event = Event.find_by(id: params[:event_id])
     event_attendance = EventAttendance.new(attended_event: @event, attendee: current_user)
     if  event_attendance.save 
-      flash[:success] = 'you are going to the event'
+      flash[:notice] = 'Your attendance has been registered'
       redirect_to current_user
     end
   end
@@ -77,7 +77,7 @@ class EventsController < ApplicationController
   def cancel_attendance
     @event = Event.find_by(id: params[:event_id])
     EventAttendance.find_by(attended_event: @event, attendee: current_user).destroy
-    flash[:success] = 'you remove the invitation to the event'
+    flash[:notice] = 'Your attendance has been canceled'
     redirect_to current_user
   end
 
