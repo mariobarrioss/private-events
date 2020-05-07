@@ -11,7 +11,6 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-
   end
 
   # GET /events/new
@@ -21,7 +20,6 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-
   end
 
   # POST /events
