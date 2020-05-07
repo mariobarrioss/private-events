@@ -16,9 +16,6 @@
         <% if user_signed_in? && current_user.id == @event.creator_id %>
   			<nav class="level">
   				<div class="level-left is-mobile">
-  					<%= link_to @event, class: "level-item" do %>
-  					  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
-  					<% end %>
   					<%= link_to edit_event_path(@event), class: "level-item" do %>
   					  <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
   					<% end %>
