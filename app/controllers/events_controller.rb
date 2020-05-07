@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  # before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = Event.find(params[:id])
+
   end
 
   # GET /events/new
@@ -21,7 +21,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
+
   end
 
   # POST /events
@@ -47,8 +47,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
+        format.html { redirect_to current_user, notice: 'Event was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
