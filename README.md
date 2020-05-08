@@ -1,24 +1,82 @@
-# README
+# Associations in Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> The purpose of this project is to build a clone of the site eventbrite.
 
-Things you may want to cover:
+![screenshot](./app_screenshot.png)
 
-* Ruby version
+The purpose of this project is to build a clone of eventbrite in order to provide a demonstration of the concept of associations with active record in Rails. The site handles user login with their email, allows the user to create a new event and join other events created by other users on the site.
 
-* System dependencies
+## Built With
 
-* Configuration
+- Ruby 2.6.1,
+- Rails 6.0.2,
 
-* Database creation
+## Live Demo
 
-* Database initialization
+[Live Demo Link](https://livedemo.com)
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Getting Started
 
-* Deployment instructions
+To get a local copy up and running follow these simple example steps.
 
-* ...
+### Prerequisites
+
+> You need to have rails 6.0.2 installed on your local system, also you would need ruby 2.6.1 and git installed. 
+
+### Setup
+
+> Run the following command in your terminal to get a local copy of the repo on your local machine.
+
+```bash
+  $ git clone https://www.github.com/mariobarrioss/private-events.git
+```
+
+### Install
+
+> Run the following command to install the required gems on your local machine.
+
+```bash
+  $ bundle install --without production
+  $ yarn install --check-files
+```
+
+### Usage
+
+> Run the rails server to view on your browser.
+
+```bash
+  $ rails server -b 0.0.0.0
+```
+
+### Deployment
+
+There are no deployment instructions for this project as of now, will add them later.
+
+## Authors
+
+👤 **Rohan Sundar**
+
+- Github: [@rsundar](https://github.com/rsundar)
+- Twitter: [@skelegrow](https://twitter.com/)
+- Linkedin: [linkedin](https://linkedin.com/)
+
+👤 **Mario Barrios**
+
+- Github: [@mariobarrioss](https://github.com/mariobarrioss)
+- Twitter: [@twitterhandle](https://twitter.com/)
+- Linkedin: [linkedin](https://linkedin.com/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](https://github.com/rsundar/members-only/tree/devise/LICENSE) licensed.

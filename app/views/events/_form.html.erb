@@ -1,0 +1,37 @@
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-4">
+
+      <%= simple_form_for(@event, url: "/events/#{event.id}") do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :title, required: true, autofocus: true, input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :ds, required: true, autofocus: true, input_html: { class: "textarea"}, wrapper: false, label: "Description", label_html: { class: "label" } %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :date, required: true, autofocus: false, input_html: { type: "date", class: "select" }, wrapper: false, label_html: { class: "label" } %>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class:"button is-info" %>
+        </div>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+</section>

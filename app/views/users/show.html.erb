@@ -1,0 +1,59 @@
+<div class="column is-one-quarter">
+	<nav class="panel">
+		<p class="panel-heading">Profile</p>
+		<div class="panel-block">
+			<article class="media">
+				<div class="media-left">
+					<figure class="image is-64x64">
+						<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.email) %>
+					</figure>
+				</div>
+				<div class="media-content">
+					<div class="content">
+						<p>
+							<strong><%= current_user.email %></strong><br />
+						</p>
+					</div>
+				</div>
+			</article>
+		</div>
+		<div class="panel-block">
+			<div class="level is-mobile">
+				<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Created events</p>
+						<p class="title is-6"><%= current_user.events.count %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+<div class="container">
+    <div class='columns'> 
+
+        <div class="column">
+            <h3>Your events: </h3>
+            <% @created_events.each do |event|%>
+                <%= render partial: 'events/event' , locals: {event: event} %>
+            <% end%>
+        </div>
+
+        <div class="column">
+            <h3>Past events: </h3>
+            <% @past_events.each do |event| %>
+                <%= render partial: 'events/event' , locals: {event: event} %>
+            <% end%>
+            
+        </div>
+
+        <div class="column">
+            <h3>Upcoming events: </h3>
+            <% @upcoming_events.each do |event| %>
+                <%= render partial: 'events/event' , locals: {event: event} %>
+            <% end%>
+            
+        </div>
+
+    </div>
+</div>
